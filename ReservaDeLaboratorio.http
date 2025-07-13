@@ -1,0 +1,6 @@
+@ReservaDeLaboratorio_HostAddress = http://localhost:5247
+
+GET {{ReservaDeLaboratorio_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
