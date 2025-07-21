@@ -5,21 +5,21 @@
 namespace ReservaDeLaboratorio.Migrations
 {
     /// <inheritdoc />
-    public partial class PopularTurma : Migration
+    public partial class PopularTurmas : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder mb)
         {
-            mb.Sql("INSERT INTO Turmas (TurmaId, Nome, QuantidadeAlunos, ProfessorId) VALUES (1, '1A Informática', 18, 1)");
-            mb.Sql("INSERT INTO Turmas (TurmaId, Nome, QuantidadeAlunos, ProfessorId) VALUES (2, '2B Redes', 15, 2)");
-            mb.Sql("INSERT INTO Turmas (TurmaId, Nome, QuantidadeAlunos, ProfessorId) VALUES (3, '3C Programação', 20, 3)");
-
+            mb.Sql("INSERT INTO Turmas (TurmaId, Nome, QuantidadeAlunos) VALUES (1, '1º Ano A', 25)");
+            mb.Sql("INSERT INTO Turmas (TurmaId, Nome, QuantidadeAlunos) VALUES (2, '2º Ano B', 28)");
+            mb.Sql("INSERT INTO Turmas (TurmaId, Nome, QuantidadeAlunos) VALUES (3, '3º Ano C', 30)");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder mb)
         {
             mb.Sql("DELETE FROM Turmas WHERE TurmaId IN (1, 2, 3)");
+
         }
     }
 }

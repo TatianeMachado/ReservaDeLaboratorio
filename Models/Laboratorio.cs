@@ -1,18 +1,20 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace ReservaDeLaboratorio.Models;
+﻿using ReservaDeLaboratorio.Models;
+using System.Collections.ObjectModel;
 
 public class Laboratorio
 {
-    [Key]
+    public Laboratorio()
+    {
+        Professores = new Collection<Professor>();
+        Reservas = new Collection<Reserva>();
+    }
+
     public int LaboratorioId { get; set; }
-
-    [Required]
-    [MaxLength(50)]
     public string Nome { get; set; } = string.Empty;
+    public int Capacidade { get; set; } = 20;
+    public Collection<Professor> Professores { get; set; }
+    public Collection <Reserva> Reservas { get; internal set; }
 
-    [Required]
-    public int Capacidade { get; set; } = 20; // padrão definido
-
-    public ICollection<Reserva> Reservas { get; set; } = new List<Reserva>();
+    // Remover se não quiser navegação inversa
+    // public ICollection<Reserva> Reservas { get; set; }
 }

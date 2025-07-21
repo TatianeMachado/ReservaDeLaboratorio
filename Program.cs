@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using ReservaDeLaboratorio.Context;
+using ReservaDeLaboratorio.Models;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,8 +11,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<AppDbContext>(options =>
+builder.Services.AddDbContext<ReservaDeLaboratorioContext>(options =>
     options.UseMySql(connectionString, serverVersion: ServerVersion.AutoDetect(connectionString)));
+builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 var app = builder.Build();
 

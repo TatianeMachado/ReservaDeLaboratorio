@@ -5,18 +5,15 @@
 namespace ReservaDeLaboratorio.Migrations
 {
     /// <inheritdoc />
-    public partial class PopularProfessor : Migration
+    public partial class PopularProfessores : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder mb)
-        
-            /// <inheritdoc />
         {
             mb.Sql("INSERT INTO Professores (ProfessorId, Nome, Email) VALUES (1, 'Carlos Souza', 'carlos.souza@escola.com')");
             mb.Sql("INSERT INTO Professores (ProfessorId, Nome, Email) VALUES (2, 'Ana Martins', 'ana.martins@escola.com')");
             mb.Sql("INSERT INTO Professores (ProfessorId, Nome, Email) VALUES (3, 'Marcos Lima', 'marcos.lima@escola.com')");
         }
-        
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder mb)
